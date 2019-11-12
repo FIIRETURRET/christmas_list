@@ -1,0 +1,35 @@
+{% extends 'entries/base.html' %}
+
+{% block breadcrumb %}
+<li class="breadcrumb-item active">Gift List</li>
+{% endblock %}
+
+{% block content %}
+{% if gift_list %}
+
+	<table class="table">
+	    <thread class="thread-inverse">
+    	    <tr>
+    	        <th>Gift</th>
+    	        <th>Price</th>
+    	        <th>Link</th>
+    	        <th>Picture</th>
+				<th>Available</th>
+    	    </tr>
+	    </thread>
+	    <tbody>
+	        {% for gift in gift_list %}
+	            <tr>
+	                <td><a href="{{gift.link}}" onclick="window.open('comfirm buy page')">{{ gift.name }}</a></td>
+	                <td><a href="{{ gift.link }}" target="_blank">{{ gift.price }}</a></td>
+	                <td><a href="{{ gift.link }}" target="_blank">{{ gift.link }}</a></td>
+	                <td><img src="{{ gift.image.url }}" href="{{ gift.link }}" target="_blank"></img></td>
+					<td><a href="{{ gift.link }}" target="_blank">{{ gift.available }}</a></td>
+	                <td></td>
+	            </tr>
+            {% endfor %}
+	    </tbody>
+	</table>
+{% endif %}
+{% endblock %}
+
