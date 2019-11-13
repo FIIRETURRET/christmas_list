@@ -125,6 +125,6 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = ( os.path.join('static'),)
 STATIC_ROOT = ''
 
-MEDIA_ROOT = os.path.join('django_christmas\christmasList', 'media/')
-MEDIA_URL = 'django_christmas/christmasList/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
 

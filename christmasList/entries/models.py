@@ -2,6 +2,7 @@ from django.db import models
 import os
 from django.utils.functional import cached_property
 from django.utils.html import format_html
+from django_resized import ResizedImageField
 
 # Create your models here.
 
