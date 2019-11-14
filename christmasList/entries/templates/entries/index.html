@@ -6,30 +6,42 @@
 
 {% block content %}
 {% if gift_list %}
+    <style>
+        tr{
+            background-color: rgba(255, 255, 255, 0.8)
+        }
+        tr:hover {
+            background-color: rgba(255, 51, 51, 1)
+        }
+        table{
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
 
-	<table class="table">
-	    <thread class="thread-inverse">
-    	    <tr>
-    	        <th>Gift</th>
-				<th>Picture</th>
-    	        <th>Price</th>
-    	        <th>Link</th>
-				<th>Available</th>
-    	    </tr>
-	    </thread>
-	    <tbody>
-	        {% for gift in gift_list %}
-	            <tr>
-	                <td><a href="{{gift.link}}" onclick="window.open('comfirm buy page')">{{ gift.name }}</a></td>
-	                <td><img src="{{ gift.image.url }}" width="200" height="160" href="{{ gift.link }}" target="_blank"></img></td>
-					<td><a href="{{ gift.link }}" target="_blank">{{ gift.price }}</a></td>
-	                <td><a href="{{ gift.link }}" target="_blank">{{ gift.link }}</a></td>
-					<td><a href="{{ gift.link }}" target="_blank">{{ gift.available }}</a></td>
-	                <td></td>
-	            </tr>
-            {% endfor %}
-	    </tbody>
-	</table>
+
+    <div class="table-responsive">
+    	<table class="table" alighn="center">
+    	    <thread class="thread-inverse">
+        	    <tr style="background-color: #ff3333;color:#ffffff;">
+        	        <th>Gift</th>
+    				<th>Picture</th>
+        	        <th>Price</th>
+        	        <th>Link</th>
+        	    </tr>
+    	    </thread>
+    	    <tbody>
+    	        {% for gift in gift_list %}
+    	            <tr onclick="window.open('{{gift.link}}'); window.location='{{gift.id}}';">
+    	                <td><a>{{ gift.name }}</a></td>
+    	                <td><img src="{{ gift.image.url }}" width="200" height="160"></img></td>
+    					<td><a>{{ gift.price }}</a></td>
+    	                <td><a href="{{ gift.id }}">{{ gift.link }}</a></td>
+    	            </tr>
+                {% endfor %}
+    	    </tbody>
+    	</table>
+	</div>
 {% endif %}
 {% endblock %}
 

@@ -1,0 +1,43 @@
+{% extends 'entries/base.html' %}
+
+{% block breadcrumb %}
+<li class="breadcrumb-item active">Gift List</li>
+{% endblock %}
+
+{% block content %}
+{% if gift_list %}
+<style>
+    tr{
+        background-color: rgba(255, 255, 255, 0.8)
+    }
+    tr:hover {
+        background-color: rgba(41, 163, 41, 1)
+    }
+</style>
+
+	<table class="table">
+	    <thread class="thread-inverse">
+    	    <tr style="background-color: #ff3333;color:#ffffff;">
+    	        <th>Gift</th>
+				<th>Picture</th>
+    	        <th>Price</th>
+    	        <th>Link</th>
+				<th>Available</th>
+    	    </tr>
+	    </thread>
+	    <tbody>
+	        {% for gift in gift_list %}
+	            <tr>
+	                <td><a href="{{ gift.id }}" onclick="window.open('{{gift.link}}')">{{ gift.name }}</a></td>
+	                <td><img src="{{ gift.image.url }}" width="200" height="160" href="{{ gift.link }}" target="_blank"></img></td>
+					<td><a href="{{ gift.link }}" target="_blank">{{ gift.price }}</a></td>
+	                <td><a href="{{ gift.link }}" target="_blank">{{ gift.link }}</a></td>
+					<td><a href="{{ gift.link }}" target="_blank">{{ gift.available }}</a></td>
+	                <td></td>
+	            </tr>
+            {% endfor %}
+	    </tbody>
+	</table>
+{% endif %}
+{% endblock %}
+

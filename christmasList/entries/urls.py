@@ -6,4 +6,5 @@ app_name = 'entries'
 urlpatterns = [
     path('', views.index, name='index'),
     path('<int:gift_id>/', views.detail, name='detail'),
+    path('all/', views.indexAll, name='indexAll'),
 ]
